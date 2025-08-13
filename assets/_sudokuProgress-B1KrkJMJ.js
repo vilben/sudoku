@@ -1,1 +1,0 @@
-import{c as e,j as o}from"./main-G7xnWVvC.js";import{S as n}from"./Sudoku-G7Iav_nM.js";const a=function(){const{sudokuId:s,sudokuProgress:t}=e.useParams();return o.jsx("div",{className:"flex flex-row justify-center",children:o.jsx(n,{sudokuId:s,sudokuProgress:t})})};export{a as component};
