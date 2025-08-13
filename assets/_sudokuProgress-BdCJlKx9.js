@@ -1,0 +1,1 @@
+import{c as e,j as o}from"./main-CxpSF3IP.js";import{S as n}from"./Sudoku-D9-xlAGt.js";const a=function(){const{sudokuId:s,sudokuProgress:t}=e.useParams();return o.jsx("div",{className:"flex flex-row justify-center",children:o.jsx(n,{sudokuId:s,sudokuProgress:t})})};export{a as component};
