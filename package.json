@@ -1,0 +1,46 @@
+{
+  "name": "tanstack-start-example-basic-react-query",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && tsc --noEmit && node scripts/postBuildGitHubPagesFix.js",
+    "preview": "pnpm run build && pnpm serve .output/public",
+    "build:gh-pages": "vite build --mode gh-pages && tsc --noEmit && node scripts/postBuildGitHubPagesFix.js",
+    "start": "vite start",
+    "deploy": "pnpm run build:gh-pages && gh-pages -d .output/public -b gh-pages"
+  },
+  "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.2.13",
+    "@tailwindcss/vite": "^4.1.11",
+    "@tanstack/react-query": "^5.66.0",
+    "@tanstack/react-query-devtools": "^5.66.0",
+    "@tanstack/react-router": "^1.121.27",
+    "@tanstack/react-router-devtools": "^1.121.27",
+    "@tanstack/react-router-with-query": "^1.121.27",
+    "@tanstack/react-start": "^1.121.28",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "redaxios": "^0.5.1",
+    "sudoku-gen": "^1.0.2",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^4.1.11",
+    "tw-animate-css": "^1.3.6",
+    "typescript": "^5.7.2",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
+}
