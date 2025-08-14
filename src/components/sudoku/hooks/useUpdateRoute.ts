@@ -9,6 +9,6 @@ export function useUpdateRoute(sudokuId: string) {
       params: { sudokuId, sudokuProgress },
     }).pathname;
 
-    router.history.replace(newPath); // 🔥 Updates URL without navigation
+    router.history.push(newPath);
   };
 }

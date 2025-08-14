@@ -1,7 +1,7 @@
 import { InvalidLengthError, split } from "~/components/sudoku/sudoku.utils";
-import { expect, test, describe } from "vitest";
+import { expect, describe, it } from "vitest";
 
-export const validSudokus = [
+const validSudokuStrings = [
   "530070000600195000098000060800060003400803001700020006060000280000419005000080079",
   "000000907000420180000705026100904000050000040000507009920108000034059000507000000",
   "302609005000000000000000000020080000100000709000400800000800000005000000000000000",
@@ -9,9 +9,9 @@ export const validSudokus = [
   "800000000003600000070090200050007000000045700000100030001000068008500010090000400",
 ];
 
-describe("tanstack-sudoku utils", () => {
+describe("sudoku utils", () => {
   describe("split", () => {
-    test("should split into pieces of 9", () => {
+    it("should split into pieces of 9", () => {
       const testString =
         "000000000111111111222222222333333333444444444555555555666666666777777777888888888";
 
@@ -30,18 +30,18 @@ describe("tanstack-sudoku utils", () => {
       expect(result).toEqual(expected);
     });
 
-    test("valid sudokus successfully split into pieces of 9", () => {
-      const splitUpSudokus = validSudokus.map(split);
-
-      splitUpSudokus.forEach((sudoku) => {
+    it.each(validSudokuStrings.map((s, i) => [i, s]))(
+      "valid sudoku #%i should split into 9x9",
+      (_, sudokuString) => {
+        const sudoku = split(sudokuString);
         expect(sudoku).toHaveLength(9);
         sudoku.forEach((row) => {
           expect(row).toHaveLength(9);
         });
-      });
-    });
+      },
+    );
 
-    test("throws error when tanstack-sudoku has invalid length", () => {
+    it("throws error when sudoku has invalid length", () => {
       const invalidSudoku = "123456789";
       expect(() => split(invalidSudoku)).toThrowError(InvalidLengthError);
     });

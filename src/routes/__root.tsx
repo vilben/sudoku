@@ -2,7 +2,6 @@
 import {
   createRootRouteWithContext,
   HeadContent,
-  Link,
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
@@ -14,15 +13,9 @@ import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
 import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "~/components/ui/navigation-menu";
+import { ThemeProvider } from "~/components/theme/ThemeProvider";
+import { NavMenu } from "~/components/menu/NavMenu";
+import { Toaster } from "~/components/ui/sonner";
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -82,9 +75,11 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <RootDocument>
+        <Outlet />
+      </RootDocument>
+    </ThemeProvider>
   );
 }
 
@@ -94,86 +89,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem asChild>
-              <NavigationMenuLink asChild>
-                <Link to={"/"} className={navigationMenuTriggerStyle()}>
-                  Home
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Play</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <ListItem to={"/tanstack-sudoku/sudoku"} title={"Sudoku"}>
-                    Play Sudoku
-                  </ListItem>
-                  <ListItem
-                    to={"/tanstack-sudoku/sudoku/random"}
-                    title={"Random"}
-                  >
-                    Generate completely random Sudoku
-                  </ListItem>
-                  <ListItem
-                    to={"/tanstack-sudoku/sudoku/random/easy"}
-                    title={"Easy"}
-                  >
-                    Generate random easy Sudoku
-                  </ListItem>
-                  <ListItem
-                    to={"/tanstack-sudoku/sudoku/random/medium"}
-                    title={"Medium"}
-                  >
-                    Generate random mediumSudoku
-                  </ListItem>
-                  <ListItem
-                    to={"/tanstack-sudoku/sudoku/random/hard"}
-                    title={"Hard"}
-                  >
-                    Generate random mediumSudoku
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+      <body className={"h-[100vh] overflow-hidden"}>
+        <NavMenu />
         <hr />
-        <div className={"p-4 flex flex-row justify-center"}>{children}</div>
+        <main className={"overflow-y-auto h-full w-full"}>{children}</main>
         <TanStackRouterDevtools position="bottom-right" />
         <ReactQueryDevtools buttonPosition="bottom-left" />
         <Scripts />
+        <Toaster />
       </body>
     </html>
-  );
-}
-
-function ListItem({
-  title,
-  children,
-  params,
-  to,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { to: string; params?: object }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link
-          to={to}
-          activeOptions={{ exact: true }}
-          params={params}
-          activeProps={{
-            className: "bg-gray-100",
-          }}
-        >
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   );
 }

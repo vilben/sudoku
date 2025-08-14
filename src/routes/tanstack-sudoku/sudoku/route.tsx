@@ -6,5 +6,9 @@ export const Route = createFileRoute("/tanstack-sudoku/sudoku")({
 });
 
 function RouteComponent() {
-  return <Outlet />;
+  return (
+    <section className="relative w-full flex flex-row justify-center">
+      <Outlet />
+    </section>
+  );
 }

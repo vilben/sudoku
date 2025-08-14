@@ -1,4 +1,4 @@
-import { Difficulty } from "~/components/sudoku/sudoku.types";
+import { Difficulty, Grid } from "~/components/sudoku/sudoku.types";
 
 export const InvalidLengthError = new Error("Invalid length");
 export const InvalidProgression = new Error("Invalid progression");
@@ -42,10 +42,10 @@ export const validateBaseProgression = (
 
 export const split = (sudokuId: string) =>
   validateLength(sudokuId).match(/.{9}/g) as string[];
-export const parseGrid = (grid: number[][]) =>
+export const parseGrid = (grid: Grid) =>
   grid.map((row) => row.join("")).join("");
 
-export const initialize = (sudokuId: string) =>
+export const initialize = (sudokuId: string): Grid =>
   split(sudokuId).map((row) => row.split("").map(Number));
 export const toDifficulty = (difficulty: string) =>
   Difficulty[difficulty.toUpperCase() as keyof typeof Difficulty];

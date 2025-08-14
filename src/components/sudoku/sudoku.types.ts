@@ -3,3 +3,6 @@ export enum Difficulty {
   MEDIUM = "medium",
   HARD = "hard",
 }
+
+export type Grid = number[][];
+export type SudokuError = { x: number; y: number };
