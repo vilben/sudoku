@@ -11,14 +11,8 @@ export default mergeConfig(
       alias: {
         "~": "/src",
       },
-        exclude: [
-            'node_modules',
-            'dist',
-            '.idea',
-            '.git',
-            '.cache',
-            'e2e'
-        ],
-        include: ['src/**/*.test.{js,ts,jsx,tsx}']}
+      exclude: ["node_modules", "dist", ".idea", ".git", ".cache", "e2e"],
+      include: ["src/**/*.test.{js,ts,jsx,tsx}"],
+    },
   }),
 );

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TanstackSudokuSudokuRouteRouteImport } from './routes/tanstack-sudoku/sudoku/route'
 import { Route as TanstackSudokuSudokuIndexRouteImport } from './routes/tanstack-sudoku/sudoku/index'
 import { Route as TanstackSudokuSudokuRandomIndexRouteImport } from './routes/tanstack-sudoku/sudoku/random/index'
+import { Route as TanstackSudokuSudoku3dIndexRouteImport } from './routes/tanstack-sudoku/sudoku/3d/index'
 import { Route as TanstackSudokuSudokuSudokuIdIndexRouteImport } from './routes/tanstack-sudoku/sudoku/$sudokuId/index'
 import { Route as TanstackSudokuSudokuRandomDifficultyRouteImport } from './routes/tanstack-sudoku/sudoku/random/$difficulty'
 import { Route as TanstackSudokuSudokuSudokuIdSudokuProgressRouteImport } from './routes/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress'
@@ -38,6 +39,12 @@ const TanstackSudokuSudokuRandomIndexRoute =
   TanstackSudokuSudokuRandomIndexRouteImport.update({
     id: '/random/',
     path: '/random/',
+    getParentRoute: () => TanstackSudokuSudokuRouteRoute,
+  } as any)
+const TanstackSudokuSudoku3dIndexRoute =
+  TanstackSudokuSudoku3dIndexRouteImport.update({
+    id: '/3d/',
+    path: '/3d/',
     getParentRoute: () => TanstackSudokuSudokuRouteRoute,
   } as any)
 const TanstackSudokuSudokuSudokuIdIndexRoute =
@@ -66,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress': typeof TanstackSudokuSudokuSudokuIdSudokuProgressRoute
   '/tanstack-sudoku/sudoku/random/$difficulty': typeof TanstackSudokuSudokuRandomDifficultyRoute
   '/tanstack-sudoku/sudoku/$sudokuId': typeof TanstackSudokuSudokuSudokuIdIndexRoute
+  '/tanstack-sudoku/sudoku/3d': typeof TanstackSudokuSudoku3dIndexRoute
   '/tanstack-sudoku/sudoku/random': typeof TanstackSudokuSudokuRandomIndexRoute
 }
 export interface FileRoutesByTo {
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
   '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress': typeof TanstackSudokuSudokuSudokuIdSudokuProgressRoute
   '/tanstack-sudoku/sudoku/random/$difficulty': typeof TanstackSudokuSudokuRandomDifficultyRoute
   '/tanstack-sudoku/sudoku/$sudokuId': typeof TanstackSudokuSudokuSudokuIdIndexRoute
+  '/tanstack-sudoku/sudoku/3d': typeof TanstackSudokuSudoku3dIndexRoute
   '/tanstack-sudoku/sudoku/random': typeof TanstackSudokuSudokuRandomIndexRoute
 }
 export interface FileRoutesById {
@@ -84,6 +93,7 @@ export interface FileRoutesById {
   '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress': typeof TanstackSudokuSudokuSudokuIdSudokuProgressRoute
   '/tanstack-sudoku/sudoku/random/$difficulty': typeof TanstackSudokuSudokuRandomDifficultyRoute
   '/tanstack-sudoku/sudoku/$sudokuId/': typeof TanstackSudokuSudokuSudokuIdIndexRoute
+  '/tanstack-sudoku/sudoku/3d/': typeof TanstackSudokuSudoku3dIndexRoute
   '/tanstack-sudoku/sudoku/random/': typeof TanstackSudokuSudokuRandomIndexRoute
 }
 export interface FileRouteTypes {
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
     | '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress'
     | '/tanstack-sudoku/sudoku/random/$difficulty'
     | '/tanstack-sudoku/sudoku/$sudokuId'
+    | '/tanstack-sudoku/sudoku/3d'
     | '/tanstack-sudoku/sudoku/random'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
     | '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress'
     | '/tanstack-sudoku/sudoku/random/$difficulty'
     | '/tanstack-sudoku/sudoku/$sudokuId'
+    | '/tanstack-sudoku/sudoku/3d'
     | '/tanstack-sudoku/sudoku/random'
   id:
     | '__root__'
@@ -112,6 +124,7 @@ export interface FileRouteTypes {
     | '/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress'
     | '/tanstack-sudoku/sudoku/random/$difficulty'
     | '/tanstack-sudoku/sudoku/$sudokuId/'
+    | '/tanstack-sudoku/sudoku/3d/'
     | '/tanstack-sudoku/sudoku/random/'
   fileRoutesById: FileRoutesById
 }
@@ -150,6 +163,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TanstackSudokuSudokuRandomIndexRouteImport
       parentRoute: typeof TanstackSudokuSudokuRouteRoute
     }
+    '/tanstack-sudoku/sudoku/3d/': {
+      id: '/tanstack-sudoku/sudoku/3d/'
+      path: '/3d'
+      fullPath: '/tanstack-sudoku/sudoku/3d'
+      preLoaderRoute: typeof TanstackSudokuSudoku3dIndexRouteImport
+      parentRoute: typeof TanstackSudokuSudokuRouteRoute
+    }
     '/tanstack-sudoku/sudoku/$sudokuId/': {
       id: '/tanstack-sudoku/sudoku/$sudokuId/'
       path: '/$sudokuId'
@@ -179,6 +199,7 @@ interface TanstackSudokuSudokuRouteRouteChildren {
   TanstackSudokuSudokuSudokuIdSudokuProgressRoute: typeof TanstackSudokuSudokuSudokuIdSudokuProgressRoute
   TanstackSudokuSudokuRandomDifficultyRoute: typeof TanstackSudokuSudokuRandomDifficultyRoute
   TanstackSudokuSudokuSudokuIdIndexRoute: typeof TanstackSudokuSudokuSudokuIdIndexRoute
+  TanstackSudokuSudoku3dIndexRoute: typeof TanstackSudokuSudoku3dIndexRoute
   TanstackSudokuSudokuRandomIndexRoute: typeof TanstackSudokuSudokuRandomIndexRoute
 }
 
@@ -191,6 +212,7 @@ const TanstackSudokuSudokuRouteRouteChildren: TanstackSudokuSudokuRouteRouteChil
       TanstackSudokuSudokuRandomDifficultyRoute,
     TanstackSudokuSudokuSudokuIdIndexRoute:
       TanstackSudokuSudokuSudokuIdIndexRoute,
+    TanstackSudokuSudoku3dIndexRoute: TanstackSudokuSudoku3dIndexRoute,
     TanstackSudokuSudokuRandomIndexRoute: TanstackSudokuSudokuRandomIndexRoute,
   }
 

@@ -92,7 +92,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className={"h-[100vh] overflow-hidden"}>
         <NavMenu />
         <hr />
-        <main className={"overflow-y-auto h-full w-full"}>{children}</main>
+        <main
+          className={
+            "overflow-y-auto h-[calc(100vh-(var(--spacing)*18))] w-full"
+          }
+        >
+          {children}
+        </main>
         <TanStackRouterDevtools position="bottom-right" />
         <ReactQueryDevtools buttonPosition="bottom-left" />
         <Scripts />

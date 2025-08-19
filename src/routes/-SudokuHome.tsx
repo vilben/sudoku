@@ -198,9 +198,8 @@ export default function SudokuHome() {
                     • "Hidden singles": Only one cell in a row, column, or box
                     can hold a number. <br />
                     • Pairs, triples, and other patterns can help narrow
-                    possibilities. <br />
-                    • Every puzzle has a unique solution—no guessing required.{" "}
-                    <br />
+                    possibilities. <br />• Every puzzle has a unique solution—no
+                    guessing required. <br />
                     <br />
                     With our online Sudoku, you can also use hints, validation,
                     and undo/redo features to guide your solving process.
