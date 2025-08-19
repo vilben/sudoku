@@ -1,1 +1,0 @@
-import{k as s,j as t,N as u}from"./main-BJ5LhRk7.js";const e=function(){const{sudokuId:o}=s.useParams();return t.jsx(u,{to:"/tanstack-sudoku/sudoku/$sudokuId/$sudokuProgress",params:{sudokuId:o,sudokuProgress:o}})};export{e as component};

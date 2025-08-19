@@ -1,0 +1,1 @@
+.sudoku-container{perspective:160rem}.face{position:absolute;transition:left .5s,top .5s,z-index .5s,transform .5s;background-color:oklch(from var(--secondary) l c h / .35)}
