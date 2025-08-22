@@ -1,1 +1,0 @@
-import{s as t,j as e}from"./main-BILHCHKe.js";import{S as n}from"./Sudoku3DComponent-BIlwYwb1.js";import"./button-DZNkQJQ6.js";import"./index-DW48STyt.js";const u=function(){const{riddle:o}=t.useLoaderData();return e.jsx(n,{N:3,threeDGrid:o})};export{u as component};
