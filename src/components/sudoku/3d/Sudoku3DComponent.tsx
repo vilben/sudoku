@@ -44,11 +44,11 @@ export const Sudoku3DComponent = ({
             ? opacity / 100
             : Math.pow((opacity * 0.8) / 100, faceNo);
 
-      faceRef.style.transform = `translateZ(${-faceNo * translation * 2}rem)`; // only depth
+      faceRef.style.transform = `translateZ(${-faceNo * translation * 2}rem)`;
       faceRef.style.opacity = op.toString();
       faceRef.style.zIndex = (faceRefs.current.length - faceNo).toString();
     });
-  }, [visibleFace, FACES.length, opacity, translation]);
+  }, [currentGrid, visibleFace, FACES.length, opacity, translation]);
 
   const setValueInGrid = useCallback(
     (i: number, j: number, k: number, v: number) => {
