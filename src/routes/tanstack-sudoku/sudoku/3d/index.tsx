@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Sudoku } from "~/components/sudoku/3d/Sudoku";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button } from "~/components/ui/button";
 
 export const Route = createFileRoute("/tanstack-sudoku/sudoku/3d/")({
   component: RouteComponent,
@@ -7,18 +7,17 @@ export const Route = createFileRoute("/tanstack-sudoku/sudoku/3d/")({
 
 function RouteComponent() {
   return (
-    <div className={"p-2 flex h-[100%] flex-col items-center justify-center"}>
-      <h1 className={"mt-4 text-2xl font-bold"}>3D Sudoku (Beta)</h1>
-
-      <div
-        className={
-          "flex p-16 h-[100%] box-border w-full justify-center items-center flex-col"
-        }
-      >
-        <div className={"center p-6"}>
-          <Sudoku />
-        </div>
-      </div>
+    <div className={"flex flex-row justify-center gap-2"}>
+      <Button>
+        <Link to={"/tanstack-sudoku/sudoku/3d/mini"} title={"Mini"}>
+          Mini
+        </Link>
+      </Button>
+      <Button>
+        <Link to={"/tanstack-sudoku/sudoku/3d/maxi"} title={"Maxi"}>
+          Maxi
+        </Link>
+      </Button>
     </div>
   );
 }

@@ -35,8 +35,17 @@ export const Sudoku = () => {
           >
             Generate random hard Sudoku
           </MenuListItem>
-          <MenuListItem to={"/tanstack-sudoku/sudoku/3d"} title={"3D"}>
+          <MenuListItem
+            to={"/tanstack-sudoku/sudoku/3d/mini"}
+            title={"Mini 3D"}
+          >
             Play a 3x3x3 3D version of Sudoku (BETA)
+          </MenuListItem>
+          <MenuListItem
+            to={"/tanstack-sudoku/sudoku/3d/maxi"}
+            title={"Maxi 3D"}
+          >
+            Play a 5x5x5 3D version of Sudoku (BETA)
           </MenuListItem>
         </ul>
       </NavigationMenuContent>

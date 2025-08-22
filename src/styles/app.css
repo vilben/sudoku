@@ -60,6 +60,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sudoku-background: var(--sudoku-background);
+  --color-sudoku-background-3d: var(--sudoku-background-3d);
   --color-sudoku-border: var(--sudoku-border);
   --color-sudoku-outer-border: var(--sudoku-outer-border);
 }
@@ -98,6 +99,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --sudoku-background: oklch(0.922 0 0);
+  --sudoku-background-3d: oklch(0.922 0 0 / 0.5);
   --sudoku-border: oklch(0.708 0 0);
   --sudoku-outer-border: oklch(0.708 0 0);
 }
@@ -135,6 +137,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --sudoku-background: oklch(0.3 0 0);
+  --sudoku-background-3d: oklch(0.3 0 0 /0.5);
   --sudoku-border: oklch(1 0 0 / 10%);
   --sudoku-outer-border: oklch(0.6 0 0);
 }
